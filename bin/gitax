@@ -49,8 +49,12 @@
     return console.error("not found");
   }
 
-  if (!(namesfile || tax_id.names === null)) {
+  if (namesfile === null) {
     return console.log(tax_id);
+  }
+
+  if (tax_id.names === null) {
+    return console.log(tax_id.tax_id);
   }
 
   _ref = tax_id.names;

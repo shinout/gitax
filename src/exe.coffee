@@ -50,7 +50,8 @@ tax_id = gitax(gi, file, namesfile)
 
 return console.error "not found" unless tax_id?
 
-return console.log tax_id unless namesfile or tax_id.names is null
+return console.log tax_id if namesfile is null
+return console.log tax_id.tax_id if tax_id.names is null
 
 for name in tax_id.names
   console.log [tax_id.tax_id, name.name or "*", name.uniq_name or "*", name.name_class or "*"].join("\t")

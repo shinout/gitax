@@ -5,10 +5,10 @@ TI_PER_LINE = 0.8687
 BYTE_PER_LINE = 58.03
 
 # main
-# gitaxfile: gi_tax_nucl.dmp from taxonomy database from ftp://ftp.ncbi.nih.gov/pub/taxonomy/
 # gi : gi(int)
+# gitaxfile: gi_tax_nucl.dmp from taxonomy database from ftp://ftp.ncbi.nih.gov/pub/taxonomy/
 # returns: tax_id(int) if exists, else null
-module.export = (gitaxfile, gi, namesfile)->
+module.export = (gi, gitaxfile, namesfile)->
   fd = fs.openSync gitaxfile, "r" # file descriptor
   tax_id = null # taxonomy id
   resultGi = 0  # searched gi
@@ -85,8 +85,9 @@ showUsage = ->
   console.error """
 
   [USAGE]
-  \tgitax <gi_tax_nucl.dmp> gi [--names names.dmp]
+  \tgitax gi <gi_tax_nucl.dmp> gi [--names names.dmp]
 
+  \tgi: NCBI gi(integer)
   \tgi_tax_nucl.dmp: gi_tax data from ftp://ftp.ncbi.nih.gov/pub/taxonomy/
   \t result: tax_id to stdout
   \tnames.dmp: taxonomy_id-name data from ftp://ftp.ncbi.nih.gov/pub/taxonomy/
@@ -100,18 +101,28 @@ exports.run = ->
   try
     ap = require("argparser")
     .vals("names")
-    .files(0, "names")
-    .nums(1)
+    .nums(0)
     .parse()
+
+    try
+      json = require(__dirname + "/../.files.json")
+    catch e
+      json = {}
+
+    console.log json
+    gi = ap.arg(0)
+    file = ap.arg(1) or json.gi_tax_nucl
+    namesfile = ap.opt("names") or json.names
+
+    throw message: "file : #{file},  no such file." unless fs.existsSync(file)
+    throw message: "namesfile : #{namesfile},  no such file." if namesfile and not fs.existsSync(namesfile)
+
   catch e
     console.error "[ERROR]: #{e.message}"
     showUsage()
     process.exit(1)
 
-  file = ap.arg(0)
-  gi = ap.arg(1)
-  namesfile = ap.opt("names")
-  tax_id = module.export(file, gi, namesfile)
+  tax_id = module.export(gi, file, namesfile)
 
   return console.error "not found" unless tax_id?
 

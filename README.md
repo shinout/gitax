@@ -13,26 +13,38 @@ usage
 command line
 ```bash
 gi=1234567
-tax_id=$(gitax /path/to/gi_tax_nucl.dmp $gi)
+tax_id=$(gitax $gi /path/to/gi_tax_nucl.dmp)
 echo $tax_id
 ```
 
 with taxonomy names
 ```bash
 gi=1234567
-gitax /path/to/gi_tax_nucl.dmp $gi --names /path/to/names.dmp
+gitax $gi /path/to/gi_tax_nucl.dmp --names /path/to/names.dmp
+```
+
+
+set default files
+```bash
+gitax_set /path/to/gi_tax_nucl.dmp --names /path/to/names.dmp
+
+# run without gi_tax_nucl
+gitax 1234567
+
+# unset
+gitax_set
 ```
 
 JavaScript API
 ```js
 gitax = require("gitax")
-tax_id = gitax("/path/to/gi_tax_nucl.dmp", 1234567);
+tax_id = gitax(1234567, "/path/to/gi_tax_nucl.dmp");
 ```
 
 with taxonomy names
 ```js
 gitax = require("gitax")
-taxinfo = gitax("/path/to/gi_tax_nucl.dmp", 1234567, "/path/to/names.dmp");
+taxinfo = gitax(1234567, "/path/to/gi_tax_nucl.dmp", "/path/to/names.dmp");
 console.log(taxinfo.tax_id); // taxonomy id
 console.log(taxinfo.names); // taxonomy names // array of [name, uniq_name, name_class]
 ```

@@ -28,7 +28,8 @@ exports.run = ->
   file = path.join(path.dirname(fs.realpathSync(__filename)), '../.files.json')
 
   json = gi_tax_nucl: gi_tax_nucl, names: names
-  console.log file
+  console.error "[default files]"
+  console.error json
 
   fs.writeFileSync(file, JSON.stringify(json))
 

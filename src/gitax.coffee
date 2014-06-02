@@ -109,7 +109,6 @@ exports.run = ->
     catch e
       json = {}
 
-    console.log json
     gi = ap.arg(0)
     file = ap.arg(1) or json.gi_tax_nucl
     namesfile = ap.opt("names") or json.names

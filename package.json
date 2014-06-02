@@ -1,6 +1,6 @@
 {
   "name": "gitax",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "from NCBI gi to taxonomy id",
   "homepage": "http://github.com/shinout/gitax",
   "author": "Shin Suzuki<shinout310@gmail.com>",

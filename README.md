@@ -1,6 +1,6 @@
 gitax
 ==========
-gitax fetches taxonomy_id from given gi.
+gitax fetches taxonomy_id from given NCBI gi.
 
 installation
 ----------------

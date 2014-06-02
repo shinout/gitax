@@ -1,6 +1,6 @@
 {
   "name": "gitax",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "from NCBI gi to taxonomy id",
   "homepage": "http://github.com/shinout/gitax",
   "author": "Shin Suzuki<shinout310@gmail.com>",
@@ -29,7 +29,8 @@
   "devDependencies": {
     "coffee-script": ">= 1.7.1",
     "grunt": "^0.4.4",
-    "grunt-contrib-coffee": "^0.10.1"
+    "grunt-contrib-coffee": "^0.10.1",
+    "grunt-contrib-concat": "^0.4.0"
   },
   "repository": {
     "type": "git",

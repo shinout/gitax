@@ -19,10 +19,12 @@
     "node": ">= 0.8.0"
   },
   "bin": {
-    "gitax": "./bin/gitax"
+    "gitax": "./bin/gitax",
+    "gitax_set": "./bin/gitax_set"
   },
 
   "dependencies": {
+    "argparser": ">= 0.2.2"
   },
   "devDependencies": {
     "coffee-script": ">= 1.7.1",

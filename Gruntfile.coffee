@@ -5,6 +5,7 @@ module.exports = (grunt) ->
       compile:
         files:
           "lib/gitax.js": "src/gitax.coffee"
+          "lib/set.js": "src/set.coffee"
 
   grunt.loadNpmTasks "grunt-contrib-coffee"
   grunt.registerTask "default", ["coffee"]

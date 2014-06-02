@@ -85,11 +85,14 @@ showUsage = ->
   console.error """
 
   [USAGE]
-  \gitax <gi_tax_nucl.dmp> gi [--names names.dmp]
+  \tgitax <gi_tax_nucl.dmp> gi [--names names.dmp]
 
   \tgi_tax_nucl.dmp: gi_tax data from ftp://ftp.ncbi.nih.gov/pub/taxonomy/
   \t result: tax_id to stdout
   \tnames.dmp: taxonomy_id-name data from ftp://ftp.ncbi.nih.gov/pub/taxonomy/
+
+  setting default files
+    gitax_set <gi_tax_nucl.dmp> gi [--names names.dmp]
 """
 
 exports.run = ->

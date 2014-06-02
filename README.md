@@ -10,16 +10,15 @@ $ npm install gitax
 
 usage
 -------------
+command line
 ```bash
-gi=12345
-gitax /path/to/gi_tax_nucl.dmp 
+gi=1234567
+tax_id=$(gitax /path/to/gi_tax_nucl.dmp $gi)
+echo $tax_id
 ```
 
-stderr
+JavaScript API
 ```js
-console.error("%%"); // %
-var consolog = require("consolog");
-consolog.e("%%"); // %%, to stderr
-
-consolog.e("a", "b") // a b, to stderr
+gitax = require("gitax")
+tax_id = gitax("/path/to/gi_tax_nucl.dmp", 1234567);
 ```

@@ -5,7 +5,7 @@ gitax fetches taxonomy_id from given NCBI gi.
 installation
 ----------------
 ```bash
-$ npm install gitax
+$ npm install -g gitax
 ```
 
 usage

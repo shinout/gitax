@@ -1,5 +1,3 @@
-#!/home/shinout/node_modules/.bin/coffee
-
 fs = require("fs")
 ITERATION_NUM = 100
 GI_PER_LINE = 1.6741
